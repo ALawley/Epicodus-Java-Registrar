@@ -46,4 +46,12 @@ public class StudentTest {
     assertTrue(savedStudent.getEnrollment().equals("March 8"));
   }
 
+  @Test
+  public void delete_removesStudent() {
+    Student myStudent = new Student("Taylor", "March 5");
+    myStudent.save();
+    myStudent.delete();
+    assertEquals(0, Student.all().size());
+  }
+
 }

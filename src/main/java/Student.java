@@ -72,7 +72,15 @@ public class Student {
         .addParameter("id", id)
         .executeUpdate();
     }
+  }
 
+  public void delete() {
+    String sql = "DELETE FROM students WHERE id = :id";
+    try(Connection con = DB.sql2o.open()) {
+      con.createQuery(sql)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
   }
 
 }
