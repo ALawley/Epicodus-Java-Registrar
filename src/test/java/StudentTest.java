@@ -28,4 +28,12 @@ public class StudentTest {
     assertTrue(savedStudent.equals(myStudent));
   }
 
+  @Test
+  public void find_getsStudentByID() {
+    Student myStudent = new Student("Taylor", "March 5");
+    myStudent.save();
+    Student savedStudent = Student.find(myStudent.getId());
+    assertTrue(myStudent.equals(savedStudent));
+  }
+
 }
