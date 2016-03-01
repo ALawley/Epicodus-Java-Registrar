@@ -12,4 +12,11 @@ public class StudentTest {
   public void all_emptyAtFirst() {
     assertEquals(Student.all().size(), 0);
   }
+
+  @Test
+  public void equals_trueIfNameAndEnrollmentMatch() {
+    Student testStudent = new Student("Taylor", "March 5");
+    Student secondStudent = new Student("Taylor", "March 5");
+    assertTrue(testStudent.equals(secondStudent));
+  }
 }
