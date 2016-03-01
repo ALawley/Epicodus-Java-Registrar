@@ -19,4 +19,13 @@ public class StudentTest {
     Student secondStudent = new Student("Taylor", "March 5");
     assertTrue(testStudent.equals(secondStudent));
   }
+
+  @Test
+  public void save_savesObjectInDatabase() {
+    Student myStudent = new Student("Taylor", "March 5");
+    myStudent.save();
+    Student savedStudent = Student.all().get(0);
+    assertTrue(savedStudent.equals(myStudent));
+  }
+
 }
