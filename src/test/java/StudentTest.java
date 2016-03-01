@@ -36,4 +36,14 @@ public class StudentTest {
     assertTrue(myStudent.equals(savedStudent));
   }
 
+  @Test
+  public void update_updateStudentNameAndEnrollment() {
+    Student myStudent = new Student("Taylor", "March 5");
+    myStudent.save();
+    myStudent.update("Tom","March 8");
+    Student savedStudent = Student.find(myStudent.getId());
+    assertTrue(savedStudent.getName().equals("Tom"));
+    assertTrue(savedStudent.getEnrollment().equals("March 8"));
+  }
+
 }

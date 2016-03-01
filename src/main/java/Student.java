@@ -62,4 +62,17 @@ public class Student {
         .executeAndFetchFirst(Student.class);
     }
   }
+
+  public void update(String newName, String newEnrollment) {
+    String sql = "UPDATE students SET name = :newName, enrollment = :newEnrollment WHERE id = :id";
+    try(Connection con = DB.sql2o.open()) {
+      con.createQuery(sql)
+        .addParameter("newName", newName)
+        .addParameter("newEnrollment", newEnrollment)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
+
+  }
+
 }
